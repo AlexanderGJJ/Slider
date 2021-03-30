@@ -1,0 +1,21 @@
+.controlBtn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    border: none;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.controlBtn::after {
+    width: 40px;
+    content: url("../../assets/images/arrow.svg");
+}
+
+.controlBtnLeft {
+    transform: rotate(180deg);
+}

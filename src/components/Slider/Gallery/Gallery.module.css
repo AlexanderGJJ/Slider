@@ -1,0 +1,13 @@
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 800px;
+}
+
+.galleryItem {
+    background: gray;
+    /* временно фон */
+    width: 200px;
+    height: 200px;
+}
