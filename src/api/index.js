@@ -1,18 +1,27 @@
 import axios from "axios";
 
-// const proxy = 'https://cors-anywhere.herokuapp.com/';
-const token = 'access_token=4ae2dde8c8c1a1477aa7d9a49c6c876aa8df2fe6224b67b0ee49e14079c7eeb40b67608fa0a045bd6bee5';
-/*
+// access_token=34766b94023d9825e8812415adfef305d5aaf1fa9aa63c2c468d8c55101b8954074dcdc6bc143ae6d0a63&expires_in=86400&user_id=59994655
 
-new token
-https://oauth.vk.com/blank.html#access_token=5809f01d31f3ef8caf15e78dde6a80a32ca6c0ce232b40edbf0c36839046de36708da4a8d92c4acaf82b8&expires_in=86400&user_id=59994655
- */
+const proxy = 'https://hexlet-allorigins.herokuapp.com/get?url';
+
+const type = 'photos.getAll?owner_id=-1';
 
 const getImages = () => {
-  // axios.get('https://api.vk.com/method/photos.get?&access_token=5809f01d31f3ef8caf15e78dde6a80a32ca6c0ce232b40edbf0c36839046de36708da4a8d92c4acaf82b8&v=5.52')
-  //     .then((res) => {
-  //       console.log(res);
+  // const url = 'https://api.vk.com/method/photos.getAll?owner_id=59994655&access_token=34766b94023d9825e8812415adfef305d5aaf1fa9aa63c2c468d8c55101b8954074dcdc6bc143ae6d0a63&v=5.52';
+  // fetch(`${proxy}=${encodeURIComponent(url)}`)
+  //     .then(response => {
+  //       if (response.ok) {
+  //         // return response.json();
+  //         console.log(response);
+  //         return response;
+  //       } else {
+  //         throw new Error('Network response was not ok.')
+  //       }
   //     })
+
+  axios.get('https://example.com').then((res) => {
+    console.log(res);
+  });
 };
 
 export default getImages;

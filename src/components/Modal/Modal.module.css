@@ -1,0 +1,27 @@
+.modal {
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    width: 1190px;
+    height: 700px;
+    box-shadow: 1px 1px 1px black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+}
+
+.modal img {
+    position: absolute;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wrapper {
+    filter: blur(30px);
+    width: 100%;
+    background-size: cover;
+}
