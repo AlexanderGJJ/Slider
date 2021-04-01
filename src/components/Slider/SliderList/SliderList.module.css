@@ -1,12 +1,11 @@
 .sliderList {
     display: flex;
-    margin: 0 40px;
 }
 
 .sliderList li {
     margin-right: 15px;
 }
 
-.sliderList li:last-child {
-    margin-right: 0;
-}
+/*.sliderList li:last-child {*/
+/*    margin-right: 0;*/
+/*}*/

@@ -16,7 +16,8 @@ class Slider extends React.Component {
         currentSlide: images[4],
         nextSlide: images[1]
       },
-      isModalShow: false
+      isModalShow: false,
+      carouselPosition: 0
     };
   }
 
@@ -42,8 +43,21 @@ class Slider extends React.Component {
     })
   };
 
-  sliderCarouselHandler = (btnControl) => {
+  sliderCarouselHandler = (controlSide) => {
+    const imgOuterWidth = 85;
+    // const maxLength = images.length * imgOuterWidth;
+    const currentCarouselPosition = this.state.carouselPosition;
+    let newCarouselPosition;
 
+    if (controlSide === 'left') {
+      newCarouselPosition = currentCarouselPosition + imgOuterWidth
+    } else {
+      newCarouselPosition = currentCarouselPosition - imgOuterWidth
+    }
+
+    this.setState({
+      carouselPosition: newCarouselPosition
+    })
   };
 
   render() {
@@ -56,9 +70,11 @@ class Slider extends React.Component {
               images={images}
           />
           <div className={classes.sliderContainer}>
-            <Control left click={this.click}/>
-            <SliderList images={images} click={this.setActiveSlide} />
-            <Control click={this.click} />
+            <Control side='left' click={this.sliderCarouselHandler} />
+            <div className={classes.sliderCarousel}>
+              <SliderList carouselPosition={this.state.carouselPosition} images={images} click={this.setActiveSlide} />
+            </div>
+            <Control side='right' click={this.sliderCarouselHandler} />
           </div>
           <Modal
               currentImg={this.state.images.currentSlide.src}

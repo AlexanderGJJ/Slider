@@ -12,7 +12,7 @@ const sliderList = (props) => {
           click={props.click}
       />);
   return (
-      <ul className={classes.sliderList}>
+      <ul className={classes.sliderList} style={{ transform: `translateX(${props.carouselPosition}px)` }}>
         {slides}
       </ul>
   );

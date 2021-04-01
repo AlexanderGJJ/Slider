@@ -8,3 +8,10 @@
     align-items: center;
     justify-content: center;
 }
+
+.sliderCarousel {
+    /* помеменять имя класса или самого компонента */
+    width: 410px;
+    overflow: hidden;
+    margin: 0 30px;
+}

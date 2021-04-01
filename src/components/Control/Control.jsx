@@ -2,13 +2,12 @@ import React from 'react';
 import classes from './Control.module.css';
 
 const control = (props) => {
-    const btnClasses = [classes.controlBtn, props.left ? classes.controlBtnLeft : null].join(' ');
-    //добавить onClick -> props.click
+    const btnClasses = [classes.controlBtn, props.side === 'left' ? classes.controlBtnLeft : null].join(' ');
     return (
         <button
             className={btnClasses}
             aria-label='Переключение слайда'
-            onClick={props.click}
+            onClick={() => props.click(props.side)}
         />
     )
 };
