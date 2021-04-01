@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: space-between;
     width: 800px;
+    margin: 0 auto;
 }
 
 .galleryItem {

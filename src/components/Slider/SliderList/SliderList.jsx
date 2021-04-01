@@ -15,7 +15,7 @@ const sliderList = (props) => {
       <ul className={classes.sliderList}>
         {slides}
       </ul>
-  )
+  );
 };
 
 export default sliderList;

@@ -7,15 +7,14 @@ import classes from './Slider.module.css';
 import getImages from '../../api';
 import images from '../../Images';
 
-
 class Slider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       images: {
-        prevSlide: images[images.length - 1].src,
-        currentSlide: images[4].src,
-        nextSlide: images[1].src
+        prevSlide: images[images.length - 1],
+        currentSlide: images[4],
+        nextSlide: images[1]
       },
       isModalShow: false
     };
@@ -30,32 +29,31 @@ class Slider extends React.Component {
     const nextSlide = images[slideIndex + 1] ? images[slideIndex + 1] : images[0];
     this.setState({
       images: {
-        prevSlide: prevSlide.src,
-        currentSlide:  images[slideIndex].src,
-        nextSlide: nextSlide.src
+        prevSlide: prevSlide,
+        currentSlide:  images[slideIndex],
+        nextSlide: nextSlide
       }
     });
   }
 
-  openModalHandler = () => {
+  modalHandler = (value) => {
     this.setState({
-      isModalShow: true
+      isModalShow: value
     })
   };
 
-  closeModalHandler = () => {
-    this.setState({
-      isModalShow: false
-    })
-  }
+  sliderCarouselHandler = (btnControl) => {
+
+  };
 
   render() {
     return (
         <div className='slider'>
           <Gallery
-              openModal={this.openModalHandler}
-              setActiveSlide={() => 1}
-              images={this.state.images}
+              openModal={this.modalHandler}
+              setActiveSlide={this.setActiveSlide}
+              galeryImages={this.state.images}
+              images={images}
           />
           <div className={classes.sliderContainer}>
             <Control left click={this.click}/>
@@ -63,9 +61,9 @@ class Slider extends React.Component {
             <Control click={this.click} />
           </div>
           <Modal
-              currentImg={this.state.images.currentSlide}
+              currentImg={this.state.images.currentSlide.src}
               show={this.state.isModalShow}
-              closeModal={this.closeModalHandler}
+              closeModal={this.modalHandler}
           />
         </div>
     )
