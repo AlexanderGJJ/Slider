@@ -25,15 +25,16 @@ class Slider extends React.Component {
     // getImages(); fetch
   }
 
-  setActiveSlide = () => (slideIndex) => {
-    console.log('setActiveSlide', slideIndex);
-    // this.setState({
-    //   images: {
-    //     prevSlide: images[images.length - 2].src,
-    //     currentSlide: images[6].src,
-    //     nextSlide: images[5].src
-    //   }
-    // });
+  setActiveSlide = (slideIndex) => {
+    const prevSlide = images[slideIndex - 1] ? images[slideIndex - 1] : images[images.length - 1];
+    const nextSlide = images[slideIndex + 1] ? images[slideIndex + 1] : images[0];
+    this.setState({
+      images: {
+        prevSlide: prevSlide.src,
+        currentSlide:  images[slideIndex].src,
+        nextSlide: nextSlide.src
+      }
+    });
   }
 
   openModalHandler = () => {
@@ -52,13 +53,13 @@ class Slider extends React.Component {
     return (
         <div className='slider'>
           <Gallery
-              openModal={() => this.openModalHandler()}
+              openModal={this.openModalHandler}
               setActiveSlide={() => 1}
               images={this.state.images}
           />
           <div className={classes.sliderContainer}>
             <Control left click={this.click}/>
-            <SliderList images={images} click={() => this.setActiveSlide()} />
+            <SliderList images={images} click={this.setActiveSlide} />
             <Control click={this.click} />
           </div>
           <Modal
