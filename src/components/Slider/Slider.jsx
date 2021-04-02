@@ -22,7 +22,7 @@ class Slider extends React.Component {
   }
 
   componentDidMount() {
-    // getImages(); fetch
+    getImages();
   }
 
   setActiveSlide = (slideIndex) => {
@@ -50,7 +50,7 @@ class Slider extends React.Component {
     let newCarouselPosition;
 
     if (controlSide === 'left') {
-      newCarouselPosition = currentCarouselPosition + imgOuterWidth
+      newCarouselPosition = currentCarouselPosition + imgOuterWidth //перемотка на n элементов
     } else {
       newCarouselPosition = currentCarouselPosition - imgOuterWidth
     }
