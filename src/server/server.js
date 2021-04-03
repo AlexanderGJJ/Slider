@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const port = 3001; // || process.env
-const url = 'https://api.vk.com/method/photos.getAll?owner_id=59994655&access_token=1e40884cd5e33f7f7b165ee83bfcf821cca122b41217692ff89f964fd77f11828a4557bba68cd4fceb284&v=5.52';
+const token = '1e40884cd5e33f7f7b165ee83bfcf821cca122b41217692ff89f964fd77f11828a4557bba68cd4fceb284';
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -11,11 +11,9 @@ app.use((req, res, next) => {
 });
 
 app.get('/api/get.images', (req, res) => {
-  axios.get(url).then((response) => {
-    res.json(response.data);
-  }).catch((e) => {
-    res.send(e);
-  });
+  axios.get(`https://api.vk.com/method/wall.get?domain=aboutlondon&count=10&filter=owner&access_token=${token}&v=5.52`)
+    .then((response) => res.json(response.data))
+    .catch((error) => res.send(error));
 });
 
 app.listen(port, () => console.log(`http://localhost:${port}`));

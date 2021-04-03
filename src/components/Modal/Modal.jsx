@@ -8,7 +8,6 @@ const modal = (props) => (
         <div className={classes.wrapper}  style={{ backgroundImage: `url(${props.currentImg})`}} />
         <img src={props.currentImg} alt=""/>
       </div>
-
     </Overlay>
 );
 
