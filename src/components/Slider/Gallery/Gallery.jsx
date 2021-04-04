@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Gallery.module.css';
 
 const Gallery = (props) => {
-  const { prevSlide, currentSlide, nextSlide } = props.galeryImages;
+  const { prevSlide, currentSlide, nextSlide } = props.galleryImages;
   const prevGalleryItemIndex = props.images.findIndex((item) => item.id === prevSlide.id);
   const nextGalleryItemIndex = props.images.findIndex((item) => item.id === nextSlide.id);
   return (
