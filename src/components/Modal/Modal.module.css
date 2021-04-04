@@ -6,6 +6,7 @@
     justify-content: center;
     width: 1190px;
     height: 700px;
+    border-radius: 10px;
     box-shadow: 1px 1px 1px black;
     left: 50%;
     top: 50%;
@@ -24,4 +25,5 @@
     filter: blur(30px);
     width: 100%;
     background-size: cover;
+    background-repeat: no-repeat;
 }

@@ -17,7 +17,11 @@ class Slider extends React.Component {
         nextSlide: null
       },
       isModalShow: false,
-      carouselPosition: 0
+      carouselPosition: 0,
+      carouselItemInView: {
+        count: 5,
+        itemOuterWidth: 85
+      }
     };
   }
 
@@ -44,6 +48,9 @@ class Slider extends React.Component {
         nextSlide: nextSlide
       }
     });
+    //вызывать тут функцию карусели, если элемент больше 5; ..можно менять carouselPosition +-5 элементов
+    //перематывать на 5шт стразу
+    //при carouselPosition 0 блокировать левую кнопку и посчитать макс значение для правой и когда оно будет блокировать ее
   }
 
   modalHandler = (value) => {
@@ -52,15 +59,15 @@ class Slider extends React.Component {
     })
   };
 
-  sliderCarouselHandler = (controlSide) => {
+  sliderCarouselHandler = (type) => {
     const imgOuterWidth = 85;
     const currentCarouselPosition = this.state.carouselPosition;
     let newCarouselPosition;
 
-    if (controlSide === 'left') { //лучше через пропс prev next
-      newCarouselPosition = currentCarouselPosition + imgOuterWidth //перемотка на n элементов
+    if (type === 'prev') {
+      newCarouselPosition = currentCarouselPosition + imgOuterWidth;
     } else {
-      newCarouselPosition = currentCarouselPosition - imgOuterWidth
+      newCarouselPosition = currentCarouselPosition - imgOuterWidth;
     }
 
     this.setState({
@@ -69,8 +76,14 @@ class Slider extends React.Component {
   };
 
   render() {
+    const imgData = {
+      countItemsInView: this.state.carouselItemInView.count,
+      imgWidth: this.state.carouselItemInView.itemOuterWidth,
+      imagesCount: this.state.imagesColl.length
+    };
+
     return (
-        <div className='slider'>
+        <div className="slider">
           <Gallery
               openModal={this.modalHandler}
               setActiveSlide={this.setActiveSlide}
@@ -78,18 +91,28 @@ class Slider extends React.Component {
               images={this.state.imagesColl}
           />
           <div className={classes.sliderContainer}>
-            <Control side='left' click={this.sliderCarouselHandler} />
+            <Control
+                carouselPosition={this.state.carouselPosition}
+                type='prev'
+                click={this.sliderCarouselHandler}
+            />
             <div className={classes.sliderCarousel}>
               <SliderList
                   carouselPosition={this.state.carouselPosition}
                   images={this.state.imagesColl}
                   click={this.setActiveSlide}
+                  itemsInView={this.state.carouselItemInView}
               />
             </div>
-            <Control side='right' click={this.sliderCarouselHandler} />
+            <Control
+                carouselPosition={this.state.carouselPosition}
+                type='next'
+                click={this.sliderCarouselHandler}
+                data={imgData}
+            />
           </div>
           <Modal
-              currentImg={this.state.images.currentSlide?.src}
+              currentImg={this.state.images.currentSlide?.src} // использовать src внутри
               show={this.state.isModalShow}
               closeModal={this.modalHandler}
           />

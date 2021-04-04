@@ -9,6 +9,7 @@
     border: none;
     background: #fff;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .controlBtn::after {
@@ -16,6 +17,11 @@
     content: url("../../assets/images/arrow.svg");
 }
 
-.controlBtnLeft {
+.controlBtn:disabled {
+    opacity: 0.6;
+    cursor: auto;
+}
+
+.controlBtnPrev {
     transform: rotate(180deg);
 }
