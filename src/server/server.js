@@ -8,7 +8,6 @@ const port = 3001;
 const token = '1e40884cd5e33f7f7b165ee83bfcf821cca122b41217692ff89f964fd77f11828a4557bba68cd4fceb284';
 const vkGroups = Object.values(vkGroupsColl);
 const vkGroup = vkGroups[getRandom(0, vkGroups.length - 1)];
-console.log(vkGroup);
 
 app.get('/api/get.images', (req, res) => {
   axios.get(`https://api.vk.com/method/wall.get?domain=${vkGroup}&count=15&filter=owner&access_token=${token}&v=5.52`)

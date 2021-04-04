@@ -2,7 +2,7 @@ import React from 'react';
 import SliderItem from '../SliderItem/SliderItem';
 import classes from './SliderList.module.css';
 
-const sliderList = (props) => {
+const SliderList = (props) => {
   const slidesCount = props.itemsInView.count;
   const outerImgWidth = props.itemsInView.itemOuterWidth;
   const carouselPosition = props.carouselPosition;
@@ -28,4 +28,4 @@ const sliderList = (props) => {
   );
 };
 
-export default sliderList;
+export default SliderList;

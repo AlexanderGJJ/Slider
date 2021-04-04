@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Overlay.module.css';
 
-const overlay = (props) => (
+const Overlay = (props) => (
     <div
         className={classes.overlay}
         onClick={() => props.click(false)}
@@ -10,4 +10,4 @@ const overlay = (props) => (
     </div>
 );
 
-export default overlay;
+export default Overlay;

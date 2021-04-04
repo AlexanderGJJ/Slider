@@ -4,4 +4,11 @@
 
 .sliderList li {
     margin-right: 15px;
+    background-color: gray;
+    cursor: pointer;
+}
+
+.sliderList img {
+    display: block;
+    object-fit: cover;
 }

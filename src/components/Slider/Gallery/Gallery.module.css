@@ -8,7 +8,11 @@
 
 .galleryItem {
     background: gray;
-    /* временно фон */
-    width: 200px;
-    height: 200px;
+    cursor: pointer;
+}
+
+.galleryItem img {
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
 }

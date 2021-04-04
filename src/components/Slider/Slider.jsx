@@ -60,14 +60,14 @@ class Slider extends React.Component {
   };
 
   sliderCarouselHandler = (type) => {
-    const imgOuterWidth = 85;
+    const { itemOuterWidth } = this.state.carouselItemInView;
     const currentCarouselPosition = this.state.carouselPosition;
     let newCarouselPosition;
 
     if (type === 'prev') {
-      newCarouselPosition = currentCarouselPosition + imgOuterWidth;
+      newCarouselPosition = currentCarouselPosition + itemOuterWidth;
     } else {
-      newCarouselPosition = currentCarouselPosition - imgOuterWidth;
+      newCarouselPosition = currentCarouselPosition - itemOuterWidth;
     }
 
     this.setState({
@@ -83,7 +83,7 @@ class Slider extends React.Component {
     };
 
     return (
-        <div className="slider">
+        <div className={classes.slider}>
           <Gallery
               openModal={this.modalHandler}
               setActiveSlide={this.setActiveSlide}
