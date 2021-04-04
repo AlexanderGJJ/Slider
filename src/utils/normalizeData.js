@@ -11,10 +11,10 @@ const normalizeData = (rawData) => {
   return filteredItems.map((item) => {
     const { photo } = item;
 
-    if (!photo['photo_1280']) {
+    if (!photo['photo_807']) {
       return null;
     }
-    return { src: photo['photo_1280'], id: photo.id };
+    return { src: photo['photo_807'], id: photo.id };
   }).filter((item) => item !== null);
 };
 
