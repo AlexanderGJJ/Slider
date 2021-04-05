@@ -7,13 +7,13 @@ const Gallery = (props) => {
   const nextGalleryItemIndex = props.images.findIndex((item) => item.id === nextSlide.id);
   return (
       <ul className={classes.gallery}>
-        <li className={classes.galleryItem} onClick={() => props.setActiveSlide(prevGalleryItemIndex)}>
+        <li className={classes.galleryItem} onClick={() => props.setActiveSlide(prevGalleryItemIndex, 'prev')}>
           <img src={prevSlide?.src} width="200" height="200" alt=""/>
         </li>
         <li className={[classes.galleryItem, 'active'].join(' ')} onClick={() => props.openModal(true)}>
           <img src={currentSlide?.src} width="250" height="250" alt=""/>
         </li>
-        <li className={classes.galleryItem} onClick={() => props.setActiveSlide(nextGalleryItemIndex)}>
+        <li className={classes.galleryItem} onClick={() => props.setActiveSlide(nextGalleryItemIndex, 'next')}>
           <img src={nextSlide?.src} width="200" height='200' alt=""/>
         </li>
       </ul>
