@@ -4,7 +4,7 @@ const axios = require('axios');
 const vkGroupsColl = require('../groups.json');
 const getRandom = require('../utils/getRandom');
 
-const port = process.env.PORT || 3001;
+const port = 3001;
 const token = '1e40884cd5e33f7f7b165ee83bfcf821cca122b41217692ff89f964fd77f11828a4557bba68cd4fceb284';
 const vkGroups = Object.values(vkGroupsColl);
 const vkGroup = vkGroups[getRandom(0, vkGroups.length - 1)];
