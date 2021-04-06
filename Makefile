@@ -1,7 +1,7 @@
-start-backend:
+back:
 	npm run server
 
-start-frontend:
+front:
 	npm run start
 
 install-deps:
