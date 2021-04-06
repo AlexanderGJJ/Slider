@@ -56,16 +56,15 @@ class Slider extends React.Component {
     if (clickType === 'setActive') {
       return;
     }
-    const { imagesColl } = this.state;
+    const { imagesColl, carouselPosition } = this.state;
     const { itemOuterWidth, count } = this.state.carouselItemsInView;
-    const currentCarouselPosition = this.state.carouselPosition;
     const maxCarouselPosition = - ((imagesColl.length * itemOuterWidth) - (itemOuterWidth * count));
     const isLastSlide = imagesColl[imagesColl.length - 1] === imagesColl[activeSlideIndex];
 
     const calculateCarouselPosition = () => {
       const newCarouselPosition = clickType === 'next' ?
-          currentCarouselPosition - itemOuterWidth :
-          currentCarouselPosition + itemOuterWidth;
+          carouselPosition - itemOuterWidth :
+          carouselPosition + itemOuterWidth;
 
       if (isLastSlide) {
         return maxCarouselPosition;
@@ -95,11 +94,11 @@ class Slider extends React.Component {
 
   carouselHandler = (clickType) => {
     const { itemOuterWidth, count } = this.state.carouselItemsInView;
-    const currentCarouselPosition = this.state.carouselPosition;
+    const { carouselPosition } = this.state;
     const offset = itemOuterWidth * count
     let newCarouselPosition = clickType === 'prev' ?
-        currentCarouselPosition + offset :
-        currentCarouselPosition - offset;
+        carouselPosition + offset :
+        carouselPosition - offset;
 
     if (newCarouselPosition > 0) {
       newCarouselPosition = 0;
