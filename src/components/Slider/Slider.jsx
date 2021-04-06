@@ -96,9 +96,10 @@ class Slider extends React.Component {
   carouselHandler = (clickType) => {
     const { itemOuterWidth, count } = this.state.carouselItemsInView;
     const currentCarouselPosition = this.state.carouselPosition;
+    const offset = itemOuterWidth * count
     let newCarouselPosition = clickType === 'prev' ?
-        currentCarouselPosition + (itemOuterWidth * count) :
-        currentCarouselPosition - (itemOuterWidth * count);
+        currentCarouselPosition + offset :
+        currentCarouselPosition - offset;
 
     if (newCarouselPosition > 0) {
       newCarouselPosition = 0;
