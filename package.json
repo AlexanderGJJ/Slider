@@ -6,7 +6,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "server": "npx nodemon --exec npx babel-node src/server/server.js"
+    "server": "node src/server/server.js"
   },
   "eslintConfig": {
     "extends": [
